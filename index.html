@@ -11,35 +11,44 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Welcome to the Cyber Security Game!</h1>
-        <p>Test your skills and learn how to protect yourself from cyber threats.</p>
+        <div class="container">
+            <h1>Welcome to the Cyber Security Game!</h1>
+            <p>Your mission: Learn and defend against cyber threats in an interactive way!</p>
+        </div>
     </header>
 
-    <!-- Main Content Section -->
-    <main>
-        <section id="game-description">
-            <h2>What can you do?</h2>
+    <!-- Main Content -->
+    <main class="container">
+        <section id="about-game">
+            <h2>What is this game about?</h2>
             <p>
-                In this game, you'll face real-world cybersecurity challenges across three exciting levels:
+                In this game, you'll face challenges designed to teach you about cybersecurity threats and how to defend against them. Here's a sneak peek at what awaits you:
             </p>
-            <ul>
-                <li><strong>Level 1:</strong> Learn to identify phishing emails.</li>
-                <li><strong>Level 2:</strong> Defend against password cracking attempts.</li>
-                <li><strong>Level 3:</strong> Avoid downloading malicious software.</li>
-            </ul>
-            <p>Each level is designed to enhance your awareness and teach you practical cybersecurity skills in a fun and interactive way!</p>
+            <div class="features">
+                <div class="feature">
+                    <h3>Level 1: Phishing Scams</h3>
+                    <p>Identify fraudulent emails and learn to protect your inbox.</p>
+                </div>
+                <div class="feature">
+                    <h3>Level 2: Password Defense</h3>
+                    <p>Test your ability to create and recognize strong passwords.</p>
+                </div>
+                <div class="feature">
+                    <h3>Level 3: Malicious Downloads</h3>
+                    <p>Spot harmful downloads and avoid malware traps.</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Navigation Section -->
-        <section id="navigation">
-            <h2>Get Started</h2>
-            <button id="start-game" onclick="startGame()">Start Game</button>
+        <section id="start-section">
+            <h2>Are you ready?</h2>
+            <button id="start-game" onclick="startGame()">Start Your Adventure</button>
         </section>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Cyber Security Game. All rights reserved.</p>
+        <p>&copy; 2024 Cyber Security Game. Created with ♥ for education.</p>
     </footer>
 </body>
 </html>
