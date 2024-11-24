@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <script src="level3.js" defer></script>
     <link rel="stylesheet" href="level3.css">
 </head>
+
 <body>
     <!-- navbar.html -->
     <nav class="navbar navbar-light bg-light">
@@ -24,8 +26,44 @@
             </div>
         </div>
     </nav>
+    <header>
+        <div class="container">
+            <h1>Level 3: DDoS Attack Mitigation</h1>
+            <p>Your task: Identify and mitigate a DDoS attack on the server by blocking suspicious IPs. Be careful to only block malicious IPs!</p>
+        </div>
+    </header>
+    
     <div class="container">
-        <h1>Level3</h1>
-        <p>To be made</p>
+        <h3>Network Traffic Logs:</h3>
+        <pre id="trafficLogs">
+        [INFO] User1 - 192.168.1.1 - Normal Traffic
+        [INFO] User2 - 192.168.1.2 - Normal Traffic
+        [ALERT] IP 192.168.1.10 - Excessive Requests
+        [ALERT] IP 192.168.1.11 - Excessive Requests
+        [ALERT] IP 192.168.1.12 - Excessive Requests
+        [INFO] User3 - 192.168.1.13 - Normal Traffic
+        [INFO] User4 - 192.168.1.14 - Normal Traffic
+        [INFO] User5 - 192.168.1.15 - Normal Traffic
+        </pre>
+
+        <h3>Select the IPs to Block:</h3>
+        <form id="ipForm">
+            <div>
+                <input type="checkbox" id="ip1" value="192.168.1.1"> <label for="ip1">192.168.1.1</label><br>
+                <input type="checkbox" id="ip2" value="192.168.1.2"> <label for="ip2">192.168.1.2</label><br>
+                <input type="checkbox" id="ip192168110" value="192.168.1.10"> <label for="ip192168110">192.168.1.10</label><br>
+                <input type="checkbox" id="ip192168111" value="192.168.1.11"> <label for="ip192168111">192.168.1.11</label><br>
+                <input type="checkbox" id="ip192168112" value="192.168.1.12"> <label for="ip192168112">192.168.1.12</label><br>
+                <input type="checkbox" id="ip192168113" value="192.168.1.13"> <label for="ip192168113">192.168.1.13</label><br>
+                <input type="checkbox" id="ip192168114" value="192.168.1.14"> <label for="ip192168114">192.168.1.14</label><br>
+                <input type="checkbox" id="ip192168115" value="192.168.1.15"> <label for="ip192168115">192.168.1.15</label><br>
+            </div>
+
+            <button type="button" class="btn btn-danger" onclick="blockIPs()">Block Selected IPs</button>
+        </form>
+
+        <p id="feedback"></p>
+    </div>
 </body>
+
 </html>
