@@ -25,23 +25,25 @@
         </div>
     </nav>
     <!-- Header Section -->
-    <header>
+    <header class="bg-primary text-white text-center py-4">
         <div class="container">
             <h1>Level 2: Password Cracking</h1>
             <p>Your task: Crack the hashed password using the found clues!</p>
         </div>
     </header>
     
-    <div class="container">
-        <h3>Found Password Clue:</h3>
-        <p id="clue">"My dog's name is Charlie!"</p>
-
-        <h3>Crack the Password:</h3>
-        <input type="text" id="passwordInput" class="form-control" placeholder="Enter password" />
-
-        <button class="btn btn-primary" onclick="checkPassword()">Submit</button>
-
-        <p id="feedback"></p>
-    </div>
+    <main class="container mt-4">
+        <div class="container">
+            <h3>Found Password Clue:</h3>
+            <p id="clue">"My dog's name is Charlie!"</p>
+    
+            <h3>Crack the Password:</h3>
+            <input type="text" id="passwordInput" class="form-control" placeholder="Enter password" />
+    
+            <button class="btn btn-primary" onclick="checkPassword()">Submit</button>
+    
+            <p id="feedback"></p>
+        </div>
+    </main>
 </body>
 </html>
