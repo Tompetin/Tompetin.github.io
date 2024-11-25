@@ -56,10 +56,15 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Email 1</h5>
+                            <h5 class="sender">From ben@b4nk.com</h5>
                             <p class="card-text">Dear user, your account has been compromised. Please click <a
-                                    href="http://fake-bank.com">here</a> to secure it immediately.</p>
+                                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">fake-bank.com</a> to secure it immediately.</p>
                             <button class="btn btn-danger" onclick="checkAnswer(1, false)">Phishing</button>
                             <button class="btn btn-success" onclick="checkAnswer(1, true)">Legitimate</button>
+                            <section id="feedback" class="mt-4">
+                                <h3>Explanation will show when correct</h3>
+                                <p id="feedback-text1" class="text-muted">Your feedback will appear here.</p>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -68,10 +73,47 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Email 2</h5>
+                            <h5 class="sender">From it-dude@company.com</h5>
                             <p class="card-text">Hi John, here is the invoice you requested. Let us know if you need
                                 anything else. <br> Best, Your IT Team</p>
                             <button class="btn btn-danger" onclick="checkAnswer(2, false)">Phishing</button>
                             <button class="btn btn-success" onclick="checkAnswer(2, true)">Legitimate</button>
+                            <section id="feedback" class="mt-4">
+                                <h3>Feedback</h3>
+                                <p id="feedback-text2" class="text-muted">Your feedback will appear here.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Email 3</h5>
+                            <h5 class="sender">From mate232@gmail.com</h5>
+                            <p class="card-text">Hey friend, I found rare loot in our game, you should go get it as well. Click this link <a class="link"
+                                    >suspicious.link.com</a> to get it.</p>
+                            <button class="btn btn-danger" onclick="checkAnswer(3, false)">Phishing</button>
+                            <button class="btn btn-success" onclick="checkAnswer(3, true)">Legitimate</button>
+                            <section id="feedback" class="mt-4">
+                                <h3>Feedback</h3>
+                                <p id="feedback-text3" class="text-muted">Your feedback will appear here.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Email 4</h5>
+                            <h5 class="sender">From mate232@gmail.com</h5>
+                            <p class="card-text">Dear user, your account has been compromised. Please click <a
+                                    >here</a> to secure it immediately.</p>
+                            <button class="btn btn-danger" onclick="checkAnswer(4, false)">Phishing</button>
+                            <button class="btn btn-success" onclick="checkAnswer(4, true)">Legitimate</button>
+                            <section id="feedback" class="mt-4">
+                                <h3>Feedback</h3>
+                                <p id="feedback-text4" class="text-muted">Your feedback will appear here.</p>
+                            </section>
                         </div>
                     </div>
                 </div>
