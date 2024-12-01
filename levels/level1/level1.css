@@ -59,3 +59,13 @@ footer {
 .link{
     color: #007bff;
 }
+
+#emailViewer {
+    position: relative; /* This allows absolute positioning of elements inside it */
+}
+
+#emailViewer .btn-info {
+    position: absolute; /* Position relative to the emailViewer */
+    top: 1.5rem; /* Align it vertically with the "Back to Inbox" button */
+    left: 580px; /* Adjust this value to space it correctly next to the "Back to Inbox" button */
+}

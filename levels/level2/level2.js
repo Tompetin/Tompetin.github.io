@@ -1,6 +1,6 @@
 function checkPassword() {
     const userPassword = document.getElementById('passwordInput').value.trim();
-    const correctPassword = 'Charliedog'; // This is a simple password to crack based on the clue
+    const correctPassword = 'Charlie'; // This is a simple password to crack based on the clue
 
     if (userPassword === correctPassword) {
         document.getElementById('feedback').innerHTML = "<strong>Success!</strong> You cracked the password!";
