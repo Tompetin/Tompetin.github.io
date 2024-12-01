@@ -28,12 +28,18 @@
     <header class="bg-primary text-white text-center py-4">
         <div class="container">
             <h1>Level 2: Password Cracking</h1>
-            <p>Your task: Crack the hashed password using the found clues!</p>
+            <p>Your task: Try to make a powerful password with the checker below. OR crack the hashed password using the found clues!</p>
         </div>
     </header>
     
     <main class="container mt-4">
         <div class="container">
+            <h3 class="mt-4">Password Strength Checker:</h3>
+            <input type="text" id="passwordStrengthInput" class="form-control" placeholder="Enter password to check strength" />
+            <button class="btn btn-info mt-2" onclick="checkStrength()">Check Strength</button>
+            <p id="strengthFeedback"></p>
+
+
             <h3>Found Password Clue:</h3>
             <p id="clue">"My dog's name is Charlie!"</p>
     
@@ -42,7 +48,7 @@
     
             <button class="btn btn-primary" onclick="checkPassword()">Submit</button>
     
-            <p id="feedback"></p>
+            <p id="feedback"></p> 
         </div>
     </main>
 </body>
