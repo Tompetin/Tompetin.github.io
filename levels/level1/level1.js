@@ -8,7 +8,7 @@ const emails = [
             We have detected suspicious activity in your account and temporarily suspended it for your safety.  
             To avoid permanent suspension, please verify your identity immediately by clicking the secure link below:  
             <br>
-            <a href="https://www.fake-bank-secure-login.com">Verify My Account</a>  
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Verify My Account</a>  
             <br>
             Failure to act within 48 hours may result in account deactivation.  
             <br><br>
