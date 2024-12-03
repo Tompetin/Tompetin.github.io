@@ -234,7 +234,7 @@ function getFeedback(emailId, isCorrect) {
         case 1:
             return isCorrect
                 ? "Correct! Email 1 is a phishing attempt. Be aware of fake banking links and wrong looking senders."
-                : "Oops! Email 1 is phishing. Check the senders email and suspicious links. See also how the senders email has a 4 instead of an A";
+                : "Oops! Email 1 is phishing. Check the senders email and suspicious links. See also how the senders email has a 4 instead of an A.";
         case 2:
             return isCorrect
                 ? "Correct! Email 2 is legitimate. It's from a trusted sender."
@@ -286,6 +286,12 @@ function getFeedback(emailId, isCorrect) {
 
 function openEmail(id) {
     const email = emails.find((e) => e.id === id);
+
+    if (!email) {
+        document.getElementById("emailViewer").innerHTML = "<strong>Invalid email ID!</strong>";
+        return;
+    }
+
     document.getElementById("emailViewer").classList.remove("d-none");
     document.getElementById("emailUI").classList.add("d-none");
 
@@ -293,13 +299,32 @@ function openEmail(id) {
     document.getElementById("emailSubject").textContent = email.subject;
     document.getElementById("emailContent").innerHTML = email.content;
 
-    // Store current email's legitimacy and ID
+    // Handle envelope icon
+    const emailIcon = document.querySelector(`#email-icon-${id}`);
+    if (emailIcon && !emailIcon.classList.contains("fa-envelope-open")) {
+        emailIcon.classList.remove("fa-envelope");
+        emailIcon.classList.add("fa-envelope-open");
+    }
+
+    // Store the current email's legitimacy and ID
     const emailViewer = document.getElementById("emailViewer");
     emailViewer.dataset.isLegitimate = email.isLegitimate;
     emailViewer.dataset.id = email.id;
+
+    // Clear hint feedback
     const hintElement = document.getElementById("hint");
-    hintElement.textContent = '';
+    hintElement.textContent = "";
+
+    // Update the Next Email button's visibility
+    const nextEmailButton = document.getElementById("nextEmailButton");
+    if (id < emails.length) {
+        nextEmailButton.classList.remove("d-none");
+    } else {
+        nextEmailButton.classList.add("d-none");
+    }
 }
+
+
 
 function showHint() {
     const emailId = parseInt(document.getElementById("emailViewer").dataset.id);
@@ -348,3 +373,14 @@ function showHint() {
     }
 }
 
+function nextEmail() {
+    const emailViewer = document.getElementById("emailViewer");
+    const currentId = parseInt(emailViewer.dataset.id, 10);
+
+    // Move to the next email if it exists
+    if (currentId < emails.length) {
+        openEmail(currentId + 1);
+    }
+    const feedback = document.getElementById("feedback");
+    feedback.textContent = ""
+}
