@@ -77,7 +77,7 @@ const crackingTasks = [
 
     // Hard
     { id: 10, clue: "This password is a combination of the first three letters from each word of the user's favorite book ('Harry Potter') and their lucky number (7).", password: "HarPot7" },
-    { id: 11, clue: "A cybersecurity-conscious user has created a password that meets common strength criteria: it is 12 characters long, includes uppercase and lowercase letters, a special character, and numbers. Here's a hint: it starts with 'Secure' and has a year at the end.", password: "Secure@2024" },
+    { id: 11, clue: "A cybersecurity-conscious user has created a password that meets common strength criteria: it is 12 characters long, includes uppercase and lowercase letters, a special character, and numbers. Here's a hint: it starts with 'Secure', something from an email address and a number that is made from this calculation: 20*101 + 100 - 96.", password: "Secure@2024" },
     { id: 12, clue: "This user is very creative and used a leetspeak-style password. They replaced letters with numbers for the word 'password'.", password: "p4ssw0rd" },
 
     // Hidden in words
