@@ -42,6 +42,8 @@ function startGame() {
     // Hide the start button and the game explanation section after the game starts
     document.getElementById("startButton").style.display = "none";
     document.getElementById("gameExplanation").style.display = "none";
+    document.getElementById("hide").style.display = '';
+    document.getElementById("hide2").style.display = '';
 
     spawnTraffic();
     gameInterval = setInterval(moveTraffic, 1500);
@@ -161,7 +163,7 @@ function getDefenseCost(defense) {
     switch (defense) {
         case "firewall": return 100;
         case "rateLimiter": return 20;
-        case "analyzer": return 70; // Updated cost for Traffic Analyzer
+        case "analyzer": return 70; 
         default: return 0;
     }
 }
