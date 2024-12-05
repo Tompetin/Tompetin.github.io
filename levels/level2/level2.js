@@ -17,32 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 10, instruction: "Create a password with a memorable phrase that combines random words, numbers, and symbols. As it is a phrase it should include a space in between the words." }
     ];
 
-    const crackingTasks = [
-        // Easy
-        { id: 1, clue: "Your friend told you their favorite game's password is Puppy123 so you could help them log in while they are not home. Now you are trying to log into their email, what could the password be?", password: "Puppy123" },
-        { id: 2, clue: "Your friend uses their birthday as their password. Their birthday is January 1st, 2000.", password: "01012000" },
-        { id: 3, clue: "This user loves football, and their password is their favorite team: Manchester United.", password: "ManUtd" },
-        { id: 4, clue: "Many people choose the simplest password possible. Guess this 4-digit one. Hint: it only uses the same number", password: "0000" },
-        { id: 5, clue: "This user is a fan of the Star Wars series. Their password is the first name of the famous villain.", password: "Vader" },
-    
-        // Medium
-        { id: 6, clue: "This user loves their pet cat Whiskers who is 3 years old.", password: "Whiskers3" },
-        { id: 7, clue: "A tech-savvy user created a password based on a keyboard pattern starting with 'q' and ending at 'y'.", password: "qwerty" },
-        { id: 8, clue: "This user combines their first name (Alice) and their birth year (1989) for their password.", password: "Alice1989" },
-        { id: 9, clue: "The user's password is inspired by their favorite coffee order:'Latte with 1 milk, '", password: "Latte123!" },
-    
-        // Hard
-        { id: 10, clue: "This password is a combination of the first three letters from each word of the user's favorite book ('Harry Potter') and their lucky number (7).", password: "HarPot7" },
-        { id: 11, clue: "A cybersecurity-conscious user has created a password that meets common strength criteria: it is 12 characters long, includes uppercase and lowercase letters, a special character, and numbers. Here's a hint: it starts with 'Secure' and has a year at the end.", password: "Secure@2024" },
-        { id: 12, clue: "This user is very creative and used a leetspeak-style password. They replaced letters with numbers for the word 'password'.", password: "p4ssw0rd" },
-
-        // Hidden in words
-        { id: 13, clue: "The password is hidden in the phrase: 'An Apple a day keeps the doctor away.' The first letter of each word spells out something important. What is it?", password: "AAadktda" },
-        { id: 14, clue: "This person was born in 1980, and they always reverse the year for fun. What could their password be?", password: "0891" },
-        { id: 14, clue: "This user is a hockey enthusiast from Finland. They watch the world championships every year. They say the first win is the most important.", password: "1995" }
-    ];
-    
-
     // Render making tasks
     const makingTasksContainer = document.getElementById("makingTasksContainer");
     makingTasks.forEach(task => {
@@ -86,6 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
         makingTask.classList.add("d-none");
     });
 });
+
+const crackingTasks = [
+    // Easy
+    { id: 1, clue: "Your friend told you their favorite game's password is Puppy123 so you could help them log in while they are not home. Now you are trying to log into their email, what could the password be?", password: "Puppy123" },
+    { id: 2, clue: "Your friend uses their birthday as their password. Their birthday is January 1st, 2000.", password: "01012000" },
+    { id: 3, clue: "This user loves football, and their password is their favorite team: Manchester United.", password: "ManUtd" },
+    { id: 4, clue: "Many people choose the simplest password possible. Guess this 4-digit one. Hint: it only uses the same number", password: "0000" },
+    { id: 5, clue: "This user is a fan of the Star Wars series. Their password is the first name of the famous villain.", password: "Vader" },
+
+    // Medium
+    { id: 6, clue: "This user loves their pet cat Whiskers who is 3 years old.", password: "Whiskers3" },
+    { id: 7, clue: "A tech-savvy user created a password based on a keyboard pattern starting with 'q' and ending at 'y'.", password: "qwerty" },
+    { id: 8, clue: "This user combines their first name (Alice) and their birth year (1989) for their password.", password: "Alice1989" },
+    { id: 9, clue: "The user's password is inspired by their favorite coffee order:'Latte with 1 milk, '", password: "Latte123!" },
+
+    // Hard
+    { id: 10, clue: "This password is a combination of the first three letters from each word of the user's favorite book ('Harry Potter') and their lucky number (7).", password: "HarPot7" },
+    { id: 11, clue: "A cybersecurity-conscious user has created a password that meets common strength criteria: it is 12 characters long, includes uppercase and lowercase letters, a special character, and numbers. Here's a hint: it starts with 'Secure' and has a year at the end.", password: "Secure@2024" },
+    { id: 12, clue: "This user is very creative and used a leetspeak-style password. They replaced letters with numbers for the word 'password'.", password: "p4ssw0rd" },
+
+    // Hidden in words
+    { id: 13, clue: "The password is hidden in the phrase: 'An Apple a day keeps the doctor away.' The first letter of each word spells out something important. What is it?", password: "AAadktda" },
+    { id: 14, clue: "This person was born in 1980, and they always reverse the year for fun. What could their password be?", password: "0891" },
+    { id: 15, clue: "This user is a hockey enthusiast from Finland. They watch the world championships every year. They say the first win is the most important.", password: "1995" }
+];
 
 // Evaluate Making Task
 function evaluateMakingTask(taskId) {

@@ -4,17 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level3</title>
-
+    <title>Level 3: DDoS Defense</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    <script src="level3.js" defer></script>
     <link rel="stylesheet" href="level3.css">
+    <script src="level3.js" defer></script>
 </head>
 
 <body>
-    <!-- navbar.html -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Cyber Security Game</span>
@@ -26,46 +23,37 @@
             </div>
         </div>
     </nav>
+
     <header class="bg-primary text-white text-center py-4">
         <div class="container">
-            <h1>Level 3: DDoS Attack Mitigation</h1>
-            <p>Your task: Identify and mitigate a DDoS attack on the server by blocking suspicious IPs. Be careful to only block malicious IPs!</p>
+            <h1>Level 3: DDoS Defense</h1>
+            <p>Defend the server from malicious traffic by placing firewalls and other defenses strategically!</p>
         </div>
     </header>
-    
 
     <main class="container mt-4">
-    <div class="container">
-        <h3>Network Traffic Logs:</h3>
-        <pre id="trafficLogs">
-        [INFO] User1 - 192.168.1.1 - Normal Traffic
-        [INFO] User2 - 192.168.1.2 - Normal Traffic
-        [ALERT] IP 192.168.1.10 - Excessive Requests
-        [ALERT] IP 192.168.1.11 - Excessive Requests
-        [ALERT] IP 192.168.1.12 - Excessive Requests
-        [INFO] User3 - 192.168.1.13 - Normal Traffic
-        [INFO] User4 - 192.168.1.14 - Normal Traffic
-        [INFO] User5 - 192.168.1.15 - Normal Traffic
-        </pre>
-
-        <h3>Select the IPs to Block:</h3>
-            <form id="ipForm">
-                <div>
-                    <input type="checkbox" id="ip1" value="192.168.1.1"> <label for="ip1">192.168.1.1</label><br>
-                    <input type="checkbox" id="ip2" value="192.168.1.2"> <label for="ip2">192.168.1.2</label><br>
-                    <input type="checkbox" id="ip192168110" value="192.168.1.10"> <label for="ip192168110">192.168.1.10</label><br>
-                    <input type="checkbox" id="ip192168111" value="192.168.1.11"> <label for="ip192168111">192.168.1.11</label><br>
-                    <input type="checkbox" id="ip192168112" value="192.168.1.12"> <label for="ip192168112">192.168.1.12</label><br>
-                    <input type="checkbox" id="ip192168113" value="192.168.1.13"> <label for="ip192168113">192.168.1.13</label><br>
-                    <input type="checkbox" id="ip192168114" value="192.168.1.14"> <label for="ip192168114">192.168.1.14</label><br>
-                    <input type="checkbox" id="ip192168115" value="192.168.1.15"> <label for="ip192168115">192.168.1.15</label><br>
-                </div>
-
-                <button type="button" class="btn btn-danger" onclick="blockIPs()">Block Selected IPs</button>
-            </form>
-
-            <p id="feedback"></p>
+        <div class="text-center mb-4">
+            <button class="btn btn-success" id="startButton">Start Game</button>
         </div>
+        <div class="game-area" id="gameArea">
+            <div class="grid-container">
+                <!-- Grid cells will be dynamically generated -->
+            </div>
+        </div>
+        <div class="controls mt-4 text-center">
+            <h3>Place Your Defenses</h3>
+            <button class="btn btn-warning me-2" onclick="selectDefense('firewall')">Firewall (100)</button>
+            <button class="btn btn-success me-2" onclick="selectDefense('rateLimiter')">Rate Limiter (50)</button>
+            <button class="btn btn-info me-2" onclick="selectDefense('analyzer')">Traffic Analyzer (120)</button>
+            <p>Funds: <span id="funds">1000</span></p>
+            <p>Server Health: <span id="serverHealth">100</span></p>
+        </div>
+        <div class="stats">
+            <p id="points">Points: 0</p>
+            <p id="funds">Funds: 100</p>
+            <p id="health">Server Health: 100</p>
+        </div>
+        <button id="restartButton" class="btn btn-primary" onclick="restartGame()">Restart Game</button>
     </main>
 </body>
 

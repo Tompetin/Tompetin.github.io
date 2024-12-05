@@ -1,0 +1,66 @@
+/* level3.css */
+body {
+    background-color: #f8f9fa;
+}
+
+.game-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Same number of columns */
+    grid-gap: 2px;
+    width: 100%;
+    height: 60vh; /* Adjust height for longer grid */
+}
+
+.grid-item {
+    position: relative; /* Allows labels to stay inside cells */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents text overflow */
+}
+
+.malicious {
+    background-color: #ff6b6b; /* Red for bad IPs */
+    z-index: 2; /* Always on top */
+}
+
+.normal {
+    background-color: #6bff6b; /* Green for good IPs */
+    z-index: 1; /* Lower layer */
+}
+
+
+
+.tower {
+    background-color: #6b6bff; /* Blue for defenses */
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#restartButton {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+
+.ip-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    pointer-events: none;
+    text-align: center;
+}
