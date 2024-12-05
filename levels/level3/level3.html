@@ -32,27 +32,46 @@
     </header>
 
     <main class="container mt-4">
+        <!-- Game Instructions Section -->
+        <div class="text-center mb-4" id="gameExplanation">
+            <h3>How to Play</h3>
+            <p>In this level, you must defend your server from malicious traffic. Use the buttons below to select a defense type (Firewall, Rate Limiter, or Traffic Analyzer) and place it on the grid. As traffic moves through the grid, try to stop malicious IPs from reaching the server by strategically placing defenses. Your goal is to protect the server and earn points. Watch your funds and server health closely!</p>
+
+            <h4>Defense Types:</h4>
+            
+                <p><strong>Firewall</strong>: Blocks all malicious traffic that passes through it. It costs 100 funds to place and earns you points when it successfully blocks traffic.</p>
+                <p><strong>Rate Limiter</strong>: Limits the number of requests from a malicious IP, slowing it down. It costs 20 funds to place. Each rate limiter can block traffic up to two times before deactivating.</p>
+            <!--<p><strong>Traffic Analyzer</strong>: Identifies and marks malicious IPs for easier detection. It costs 70 funds to place. This tool helps you monitor traffic and prepare for defense placement.</p> -->
+            
+        </div>
+
+        <!-- Start Game Button -->
         <div class="text-center mb-4">
             <button class="btn btn-success" id="startButton">Start Game</button>
         </div>
+
         <div class="game-area" id="gameArea">
             <div class="grid-container">
                 <!-- Grid cells will be dynamically generated -->
             </div>
         </div>
+        
+        <!-- Defense Controls -->
         <div class="controls mt-4 text-center">
             <h3>Place Your Defenses</h3>
             <button class="btn btn-warning me-2" onclick="selectDefense('firewall')">Firewall (100)</button>
-            <button class="btn btn-success me-2" onclick="selectDefense('rateLimiter')">Rate Limiter (50)</button>
-            <button class="btn btn-info me-2" onclick="selectDefense('analyzer')">Traffic Analyzer (120)</button>
+            <button class="btn btn-success me-2" onclick="selectDefense('rateLimiter')">Rate Limiter (20)</button>
+            <!--<button class="btn btn-info me-2" onclick="selectDefense('analyzer')">Traffic Analyzer (70)</button>-->
+        </div>
+        
+        <!-- Game Stats -->
+        <div class="stats">
             <p>Funds: <span id="funds">1000</span></p>
             <p>Server Health: <span id="serverHealth">100</span></p>
+            <p>Points: <span id="points">0</span></p>
         </div>
-        <div class="stats">
-            <p id="points">Points: 0</p>
-            <p id="funds">Funds: 100</p>
-            <p id="health">Server Health: 100</p>
-        </div>
+
+        <!-- Restart Button -->
         <button id="restartButton" class="btn btn-primary" onclick="restartGame()">Restart Game</button>
     </main>
 </body>

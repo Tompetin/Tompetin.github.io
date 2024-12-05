@@ -7,6 +7,7 @@ let grid = [];
 let maliciousIPs = [];
 let normalIPs = [];
 let gameRunning = false;
+let frozenIPs = [];
 const rows = 10;
 const cols = 8;
 const totalCells = rows * cols;
@@ -38,13 +39,13 @@ function startGame() {
     if (gameRunning) return;
     gameRunning = true;
 
-    // Hide the start button after the game starts
+    // Hide the start button and the game explanation section after the game starts
     document.getElementById("startButton").style.display = "none";
+    document.getElementById("gameExplanation").style.display = "none";
 
     spawnTraffic();
     gameInterval = setInterval(moveTraffic, 1500);
 }
-
 
 function spawnTraffic() {
     maliciousIPs = Array.from({ length: 4 }, () => Math.floor(Math.random() * cols));
@@ -57,6 +58,12 @@ function spawnTraffic() {
 function moveTraffic() {
     let newMaliciousIPs = [];
     let newNormalIPs = [];
+
+    // Freeze all malicious IPs if an analyzer is placed
+    if (grid.some(cell => cell.type === "analyzer")) {
+        frozenIPs = maliciousIPs.slice();  // Copy malicious IPs to frozenIPs array
+        maliciousIPs = []  // Stop moving malicious IPs
+    }
 
     maliciousIPs.forEach((index, i) => {
         const nextIndex = index + cols;
@@ -76,8 +83,6 @@ function moveTraffic() {
                 }
                 setLabel(index, `Bad-${i + 1}`);
                 newMaliciousIPs.push(index);
-            } else if (grid[nextIndex].type === "analyzer") {
-                newMaliciousIPs.push(index);
             } else {
                 grid[index].type = "empty";
                 grid[nextIndex].type = "malicious";
@@ -85,7 +90,9 @@ function moveTraffic() {
                 newMaliciousIPs.push(nextIndex);
             }
         } else {
+            // If a malicious IP reaches the end, subtract health and remove it from the grid
             serverHealth -= 10;
+            grid[index].type = "empty";  // Clear it from the grid
         }
     });
 
@@ -153,8 +160,8 @@ function placeDefense(index) {
 function getDefenseCost(defense) {
     switch (defense) {
         case "firewall": return 100;
-        case "rateLimiter": return 50;
-        case "analyzer": return 120;
+        case "rateLimiter": return 20;
+        case "analyzer": return 70; // Updated cost for Traffic Analyzer
         default: return 0;
     }
 }
@@ -170,7 +177,9 @@ function renderGrid() {
 
         if (cell.type === "malicious") element.classList.add("malicious");
         if (cell.type === "normal") element.classList.add("normal");
-        if (["firewall", "rateLimiter", "analyzer"].includes(cell.type)) element.classList.add("tower");
+        if (cell.type === "firewall") element.classList.add("firewall");
+        if (cell.type === "rateLimiter") element.classList.add("rate-limiter");
+        if (cell.type === "analyzer") element.classList.add("analyzer");
     });
 }
 

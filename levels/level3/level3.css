@@ -28,6 +28,18 @@ body {
     overflow: hidden; /* Prevents text overflow */
 }
 
+.firewall {
+    background-color: #85008a; /* Red for Firewall */
+}
+
+.rate-limiter {
+    background-color: #f0ad4e; /* Yellow for Rate Limiter */
+}
+
+.analyzer {
+    background-color: #5bc0de; /* Blue for Analyzer */
+}
+
 .malicious {
     background-color: #ff6b6b; /* Red for bad IPs */
     z-index: 2; /* Always on top */
@@ -36,12 +48,6 @@ body {
 .normal {
     background-color: #6bff6b; /* Green for good IPs */
     z-index: 1; /* Lower layer */
-}
-
-
-
-.tower {
-    background-color: #6b6bff; /* Blue for defenses */
 }
 
 .stats {
