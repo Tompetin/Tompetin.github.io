@@ -83,12 +83,12 @@ function moveTraffic() {
                 if (grid[nextIndex].useCount <= 0) {
                     grid[nextIndex].type = "empty";
                 }
-                setLabel(index, `Bad-${i + 1}`);
+                setLabel(index, `Bad`);
                 newMaliciousIPs.push(index);
             } else {
                 grid[index].type = "empty";
                 grid[nextIndex].type = "malicious";
-                setLabel(nextIndex, `Bad-${i + 1}`);
+                setLabel(nextIndex, `Bad`);
                 newMaliciousIPs.push(nextIndex);
             }
         } else {
