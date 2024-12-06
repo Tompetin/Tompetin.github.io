@@ -16,59 +16,67 @@
 </head>
 
 <body>
-    <!-- navbar.html -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Cyber Security Game</span>
-            <div>
-                <a href="index.html" class="btn btn-primary me-2">Home</a>
-                <a href="levels/level1/level1.html" class="btn btn-secondary">Level 1</a>
-                <a href="levels/level2/level2.html" class="btn btn-secondary">Level 2</a>
-                <a href="levels/level3/level3.html" class="btn btn-secondary">Level 3</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cyber Security Game</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="levels/level1/level1.html">Level 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="levels/level2/level2.html">Level 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="levels/level3/level3.html">Level 3</a></li>
+                </ul>
             </div>
         </div>
     </nav>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
             <h1>Welcome to the Cyber Security Game!</h1>
-            <p>Your mission: Learn and defend against cyber threats in an interactive way!</p>
+            <p class="lead">Your mission: Learn and defend against cyber threats in an interactive way!</p>
+            <button class="btn btn-warning btn-lg" onclick="startGame()">Start Your Adventure</button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <main class="container my-5">
         <section id="about-game">
-            <h2>What is this game about?</h2>
-            <p>
+            <h2 class="text-center">What is this game about?</h2>
+            <p class="text-center">
                 In this game, you'll face challenges designed to teach you about cybersecurity threats and how to defend
                 against them. Here's a sneak peek at what awaits you:
             </p>
-            <div class="features">
-                <div class="feature">
-                    <h3>Level 1: Phishing Scams</h3>
-                    <p>Identify fraudulent emails and learn to protect your inbox.</p>
+            <div class="features row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="feature p-4 text-center">
+                        <h3>Level 1: Phishing Scams</h3>
+                        <p>Identify fraudulent emails and learn to protect your inbox.</p>
+                    </div>
                 </div>
-                <div class="feature">
-                    <h3>Level 2: Password Defense</h3>
-                    <p>Test your ability to create and recognize strong passwords.</p>
+                <div class="col-md-4">
+                    <div class="feature p-4 text-center">
+                        <h3>Level 2: Password Defense</h3>
+                        <p>Test your ability to create and recognize strong passwords.</p>
+                    </div>
                 </div>
-                <div class="feature">
-                    <h3>Level 3: DDoS Attacks</h3>
-                    <p>Take control as a game server admin and use given items to fight against DDoS attackers.</p>
+                <div class="col-md-4">
+                    <div class="feature p-4 text-center">
+                        <h3>Level 3: DDoS Attacks</h3>
+                        <p>Take control as a game server admin and fight against DDoS attackers.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section id="start-section">
-            <h2>Are you ready?</h2>
-            <button class="btn btn-warning btn-lg" onclick="startGame()">Start Your Adventure</button>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Cyber Security Game. Created by Tompetin</p>
+    <footer class="bg-dark text-center text-light py-3">
+        <p>&copy; 2024 Cyber Security Game. Stay Safe! Made by Tompetin.</p>
     </footer>
 </body>
 

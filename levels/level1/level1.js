@@ -158,14 +158,14 @@ const emails = [
     },
     {
         id: 10,
-        sender: "hr@company.org",
+        sender: "hr@company.com",
         subject: "Employee Survey Invitation",
         content: `Dear Team Member,  
             <br>
             We value your feedback and invite you to participate in our anonymous employee satisfaction survey.  
             Please use the link below to share your thoughts:  
             <br>
-            <a>https://company.org/survey</a>  
+            <a>https://company.com/survey</a>  
             <br><br>
             Thank you for helping us improve!  
             <br><br>

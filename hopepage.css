@@ -5,61 +5,51 @@ body {
     background: linear-gradient(to right, #1f1c2c, #928dab);
     color: #fff;
     line-height: 1.6;
-    text-align: center;
 }
 
-/* Header Styles */
-header {
-    background: #1e1e2f;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Navbar Styles */
+.navbar {
+    background: #2e2e48;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin: 0;
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to bottom, #1f1c2c, #928dab);
+    padding: 60px 20px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-header p {
-    font-size: 1.2rem;
-    margin: 10px 0 0;
-    color: #bbb;
-}
-
-/* Main Content Styles */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-main {
-    margin: 40px auto;
-}
-
-#about-game h2 {
-    font-size: 2rem;
+.hero-section h1 {
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
-#about-game p {
-    font-size: 1rem;
-    color: #ddd;
-}
-
-.features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.hero-section .btn {
     margin-top: 20px;
 }
 
-.feature {
+/* Main Content */
+#about-game {
     background: #29294a;
+    padding: 40px;
     border-radius: 10px;
-    padding: 20px;
-    width: 280px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#about-game h2 {
+    font-size: 2.5rem;
+    color: #ffa726;
+}
+
+#about-game p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.feature {
+    background: #1e1e2f;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -79,36 +69,8 @@ main {
     color: #ccc;
 }
 
-/* Start Section Styles */
-#start-section {
-    margin-top: 40px;
-}
-
-#start-game {
-    background: #ffa726;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    color: #1f1c2c;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-#start-game:hover {
-    background: #ff8f00;
-    transform: scale(1.05);
-}
-
-/* Footer Styles */
+/* Footer */
 footer {
-    background: #1e1e2f;
-    padding: 10px 0;
-    margin-top: 40px;
-    color: #aaa;
+    background: #2e2e48;
     font-size: 0.9rem;
-}
-
-footer p {
-    margin: 0;
 }

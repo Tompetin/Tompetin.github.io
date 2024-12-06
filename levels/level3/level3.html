@@ -12,14 +12,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Cyber Security Game</span>
-            <div>
-                <a href="../../index.html" class="btn btn-primary me-2">Home</a>
-                <a href="../level1/level1.html" class="btn btn-secondary">Level 1</a>
-                <a href="../level2/level2.html" class="btn btn-secondary">Level 2</a>
-                <a href="../level3/level3.html" class="btn btn-secondary">Level 3</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cyber Security Game</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level1/level1.html">Level 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level2/level2.html">Level 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level3/level3.html">Level 3</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -74,6 +80,10 @@
         <!-- Restart Button -->
         <button id="restartButton" class="btn btn-primary" onclick="restartGame()">Restart Game</button>
     </main>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2024 Cyber Security Game. Stay Safe! Made by Tompetin.</p>
+    </footer>
 </body>
 
 </html>

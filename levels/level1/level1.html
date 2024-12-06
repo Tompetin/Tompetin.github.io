@@ -18,14 +18,19 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Cyber Security Game</span>
-            <div>
-                <a href="../../index.html" class="btn btn-primary me-2">Home</a>
-                <a href="../level1/level1.html" class="btn btn-secondary">Level 1</a>
-                <a href="../level2/level2.html" class="btn btn-secondary">Level 2</a>
-                <a href="../level3/level3.html" class="btn btn-secondary">Level 3</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cyber Security Game</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level1/level1.html">Level 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level2/level2.html">Level 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../level3/level3.html">Level 3</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -34,8 +39,8 @@
     <header class="bg-primary text-white text-center py-4">
         <div class="container">
             <h1>Level 1: Phishing Awareness</h1>
-            <p class="lead">Learn to differentiate between real and fake emails to protect your inbox.</p>
-            <p class="text-light">In this level, you will encounter different emails, some of which are phishing attempts designed to trick you into revealing personal information. Your task is to examine each email carefully and decide whether it is legitimate or a phishing attempt. Look out for suspicious links, unusual sender email addresses, and urgent language. Stay alert and make the right choices to protect yourself from online scams!</p>
+            <p class="lead">In this level You take the role of a cyber security student who works in Company and studies at university. Your workplaces email domain is @company.com and school domain is @university.edu.</p>
+            <p class="text-light">Below you will encounter different emails, some of which are phishing attempts designed to trick you into revealing personal information. Your task is to examine each email carefully and decide whether it is legitimate or a phishing attempt. Look out for suspicious links, unusual sender email addresses, and urgent language. Stay alert and make the right choices to protect yourself from online scams!</p>
         </div>
     </header>
 
@@ -129,7 +134,7 @@
                 <!-- Email 10 -->
                 <a href="#" class="list-group-item list-group-item-action" onclick="openEmail(10)">
                     <div>
-                        <span><strong>hr@company.org</strong></span>
+                        <span><strong>hr@company.com</strong></span>
                         <span class="float-end">4:30 PM</span>
                         <i id="email-icon-10" class="fa-solid fa-envelope"></i>
                     </div>
@@ -180,7 +185,7 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-4">
-        <p>&copy; 2024 Cyber Security Game. Stay Safe!</p>
+        <p>&copy; 2024 Cyber Security Game. Stay Safe! Made by Tompetin.</p>
     </footer>
 </body>
 
