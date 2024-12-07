@@ -11,7 +11,10 @@ let frozenIPs = [];
 const rows = 10;
 const cols = 8;
 const totalCells = rows * cols;
-const winPoints = 1000; // Points to win the game
+const winPoints = 1000;
+let difficulty = "Medium";
+let gameMode = "Standard";
+let spawnRate = 1500; // Default spawn rate for Medium
 
 document.addEventListener("DOMContentLoaded", () => {
     const gridContainer = document.querySelector(".grid-container");
@@ -30,28 +33,91 @@ document.addEventListener("DOMContentLoaded", () => {
         gridContainer.appendChild(cell);
     }
 
-    document.getElementById("startButton").addEventListener("click", startGame);
-    document.getElementById("restartButton").style.display = "block"; // Ensure visibility
+    document.getElementById("startButton").addEventListener("click", () => {
+        chooseDifficulty();
+        chooseGameMode();
+    });
+
     document.getElementById("restartButton").addEventListener("click", restartGame);
 });
+
+function updateStats() {
+    document.getElementById("funds").textContent = funds;
+    document.getElementById("serverHealth").textContent = serverHealth;
+    document.getElementById("points").textContent = points;
+}
+
+function chooseDifficulty() {
+    // Read the selected difficulty from the dropdown
+    const difficultySelect = document.getElementById("difficultySelect");
+    difficulty = difficultySelect.value;
+
+    // Set spawn rate based on difficulty
+    switch (difficulty) {
+        case "Medium":
+            spawnRate = 800;
+            break;
+        case "Hard":
+            spawnRate = 100;
+            break;
+        default: // Default to "Medium"
+            spawnRate = 1500;
+    }
+
+    console.log(`Difficulty selected: ${difficulty}, Spawn Rate: ${spawnRate}`); // Debugging line
+    startGame();
+}
+
+
+function chooseGameMode() {
+    // Read the selected game mode from the dropdown
+    const gameModeSelect = document.getElementById("gameModeSelect");
+    gameMode = gameModeSelect.value;
+    
+    console.log(`Game Mode selected: ${gameMode}`); // Debugging line
+}
 
 function startGame() {
     if (gameRunning) return;
     gameRunning = true;
 
-    // Hide the start button and the game explanation section after the game starts
+    // Ensure difficulty and game mode are selected
+    chooseDifficulty();
+    chooseGameMode();
+
+    console.log(`Starting game in ${gameMode} mode with ${difficulty} difficulty.`); // Debugging line
+
+    // Set spawn rate based on difficulty
+    switch (difficulty) {
+        case "Easy":
+            spawnRate = 1500;
+            break;
+        case "Hard":
+            spawnRate = 650;
+            break;
+        default:
+            spawnRate = 1000;
+    }
+
+    // Hide the setup and start the game
+    document.getElementById("gameSetup").style.display = "none";
     document.getElementById("startButton").style.display = "none";
     document.getElementById("gameExplanation").style.display = "none";
     document.getElementById("hide").style.display = '';
     document.getElementById("hide2").style.display = '';
 
     spawnTraffic();
-    gameInterval = setInterval(moveTraffic, 1500);
+    gameInterval = setInterval(moveTraffic, spawnRate);
 }
 
+
 function spawnTraffic() {
-    maliciousIPs = Array.from({ length: 4 }, () => Math.floor(Math.random() * cols));
-    normalIPs = Array.from({ length: 3 }, () => Math.floor(Math.random() * cols));
+    const maliciousCount = difficulty === "Easy" ? 2 : difficulty === "Hard" ? 6 : 4;
+    const normalCount = difficulty === "Easy" ? 4 : difficulty === "Hard" ? 2 : 3;
+
+    maliciousIPs = Array.from({ length: maliciousCount }, () => Math.floor(Math.random() * cols));
+    normalIPs = Array.from({ length: normalCount }, () => Math.floor(Math.random() * cols));
+
     maliciousIPs.forEach(index => grid[index].type = "malicious");
     normalIPs.forEach(index => grid[index].type = "normal");
     renderGrid();
@@ -61,13 +127,12 @@ function moveTraffic() {
     let newMaliciousIPs = [];
     let newNormalIPs = [];
 
-    // Freeze all malicious IPs if an analyzer is placed
     if (grid.some(cell => cell.type === "analyzer")) {
-        frozenIPs = maliciousIPs.slice();  // Copy malicious IPs to frozenIPs array
-        maliciousIPs = []  // Stop moving malicious IPs
+        frozenIPs = maliciousIPs.slice();
+        maliciousIPs = [];
     }
 
-    maliciousIPs.forEach((index, i) => {
+    maliciousIPs.forEach((index) => {
         const nextIndex = index + cols;
 
         clearLabel(index);
@@ -92,25 +157,23 @@ function moveTraffic() {
                 newMaliciousIPs.push(nextIndex);
             }
         } else {
-            // If a malicious IP reaches the end, subtract health and remove it from the grid
             serverHealth -= 10;
-            grid[index].type = "empty";  // Clear it from the grid
+            grid[index].type = "empty";
         }
     });
 
-    normalIPs.forEach((index, i) => {
+    normalIPs.forEach((index) => {
         const nextIndex = index + cols;
 
         clearLabel(index);
 
         if (nextIndex < totalCells) {
-            if (grid[nextIndex].type === "firewall") {
-                // Skip firewalls
-                newNormalIPs.push(index);
-            } else {
+            if (grid[nextIndex].type !== "malicious") {
                 grid[index].type = "empty";
                 grid[nextIndex].type = "normal";
                 newNormalIPs.push(nextIndex);
+            } else {
+                newNormalIPs.push(index);
             }
         } else {
             grid[index].type = "empty";
@@ -124,11 +187,27 @@ function moveTraffic() {
 
     renderGrid();
     updateStats();
-    checkGameOver();
+
+    if (gameMode === "Standard") {
+        checkGameOver();
+    }
 
     if (maliciousIPs.length === 0 && normalIPs.length === 0) {
         spawnTraffic();
     }
+}
+
+function renderGrid() {
+    grid.forEach(cell => {
+        const element = cell.element;
+        element.className = "grid-item";
+
+        if (cell.type === "malicious") element.classList.add("malicious");
+        if (cell.type === "normal") element.classList.add("normal");
+        if (cell.type === "firewall") element.classList.add("firewall");
+        if (cell.type === "rateLimiter") element.classList.add("rate-limiter");
+        if (cell.type === "analyzer") element.classList.add("analyzer");
+    });
 }
 
 function clearLabel(index) {
@@ -161,10 +240,14 @@ function placeDefense(index) {
 
 function getDefenseCost(defense) {
     switch (defense) {
-        case "firewall": return 100;
-        case "rateLimiter": return 20;
-        case "analyzer": return 70; 
-        default: return 0;
+        case "firewall":
+            return gameMode === "Infinite" ? 60 : 100;
+        case "rateLimiter":
+            return 20;
+        case "analyzer":
+            return 70;
+        default:
+            return 0;
     }
 }
 
@@ -172,34 +255,19 @@ function selectDefense(defense) {
     selectedDefense = defense;
 }
 
-function renderGrid() {
-    grid.forEach(cell => {
-        const element = cell.element;
-        element.className = "grid-item";
-
-        if (cell.type === "malicious") element.classList.add("malicious");
-        if (cell.type === "normal") element.classList.add("normal");
-        if (cell.type === "firewall") element.classList.add("firewall");
-        if (cell.type === "rateLimiter") element.classList.add("rate-limiter");
-        if (cell.type === "analyzer") element.classList.add("analyzer");
-    });
-}
-
-function updateStats() {
-    document.getElementById("funds").textContent = funds;
-    document.getElementById("serverHealth").textContent = serverHealth;
-    document.getElementById("points").textContent = points;
-}
-
 function checkGameOver() {
     if (serverHealth <= 0) {
         clearInterval(gameInterval);
         alert("Game Over! The server has been overwhelmed.");
-    } else if (points >= winPoints) {
+    }
+
+    // Skip the win condition based on points in Infinite mode
+    if (gameMode === "Standard" && points >= winPoints) {
         clearInterval(gameInterval);
         alert("You won! Congratulations!");
     }
 }
+
 
 function restartGame() {
     location.reload();
