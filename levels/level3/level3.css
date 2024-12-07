@@ -29,11 +29,11 @@ body {
 }
 
 .firewall {
-    background-color: #85008a; /* Red for Firewall */
+    background-color: #f1f504; /* Red for Firewall */
 }
 
 .rate-limiter {
-    background-color: #f0ad4e; /* Yellow for Rate Limiter */
+    background-color: #4ef09a; /* Yellow for Rate Limiter */
 }
 
 .analyzer {
