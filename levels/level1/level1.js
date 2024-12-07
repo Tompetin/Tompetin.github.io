@@ -299,6 +299,8 @@ function openEmail(id) {
     document.getElementById("emailSubject").textContent = email.subject;
     document.getElementById("emailContent").innerHTML = email.content;
 
+    
+
     // Handle envelope icon
     const emailIcon = document.querySelector(`#email-icon-${id}`);
     if (emailIcon && !emailIcon.classList.contains("fa-envelope-open")) {
@@ -376,6 +378,8 @@ function showHint() {
 function nextEmail() {
     const emailViewer = document.getElementById("emailViewer");
     const currentId = parseInt(emailViewer.dataset.id, 10);
+    const hintElement = document.getElementById("hint");
+    hintElement.textContent = '';
 
     // Move to the next email if it exists
     if (currentId < emails.length) {

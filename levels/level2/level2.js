@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <input type="text" id="makingInput-${task.id}" class="form-control" placeholder="Enter your password">
             <button class="btn btn-primary mt-2" onclick="evaluateMakingTask(${task.id})">Submit</button>
             <p id="makingFeedback-${task.id}" class="mt-2"></p>
+            <hr>
         `;
 
         makingTasksContainer.appendChild(taskDiv);
@@ -94,7 +95,7 @@ function evaluateMakingTask(taskId) {
 
     if (taskId === 1 && /^[a-z]+$/.test(input) && input.length <= 8) {
         message = "Correct! This is a simple and easy-to-guess password.";
-    } else if (taskId === 2 && (input === "123456" || input === "12345678" || input === "password" || input === "Password" || input === "pass")) {
+    } else if (taskId === 2 && (input === "123456" || input === "12345678" || input === "password" || input === "Password" || input === "pass" || input === "admin")) {
         message = "Correct! This is a commonly used password.";
     } else if (taskId === 3 && input.length >= 8 && /[A-Z]/.test(input) && /[!@#$%^&*]/.test(input)) {
         message = "Correct! This is a strong password.";
