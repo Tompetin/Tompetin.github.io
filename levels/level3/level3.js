@@ -188,9 +188,8 @@ function moveTraffic() {
     renderGrid();
     updateStats();
 
-    if (gameMode === "Standard") {
-        checkGameOver();
-    }
+    checkGameOver();
+    
 
     if (maliciousIPs.length === 0 && normalIPs.length === 0) {
         spawnTraffic();
