@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <input type="text" id="crackingInput-${task.id}" class="form-control" placeholder="Guess the password">
             <button class="btn btn-danger mt-2" onclick="evaluateCrackingTask(${task.id})">Submit</button>
             <p id="crackingFeedback-${task.id}" class="mt-2"></p>
+            <hr>
         `;
 
         crackingTasksContainer.appendChild(taskDiv);
