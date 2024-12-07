@@ -75,7 +75,7 @@ const crackingTasks = [
     { id: 6, clue: "This user loves their pet cat Whiskers who is 3 years old.", password: "Whiskers3" },
     { id: 7, clue: "A tech-savvy user created a password based on a keyboard pattern starting with 'q' and ending at 'y'.", password: "qwerty" },
     { id: 8, clue: "This user combines their first name (Alice) and their birth year (1989) for their password.", password: "Alice1989" },
-    { id: 9, clue: "The user's password is inspired by their favorite coffee order:'Latte with 1 milk, '", password: "Latte123!" },
+    { id: 9, clue: "The user's password is inspired by their favorite coffee order:'Latte with 1 milk, 2 sugars and 3 times spun with spoon!'", password: "Latte123!" },
 
     // Hard
     { id: 10, clue: "This password is a combination of the first three letters from each word of the user's favorite book ('Harry Potter') and their lucky number (7).", password: "HarPot7" },
